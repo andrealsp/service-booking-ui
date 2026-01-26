@@ -1,0 +1,76 @@
+.navBar {
+  background-color: #a9d8c8;
+  padding: 0.5em 0;
+}
+
+.nav_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5em 15px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.nav_left_group {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre o logo e o badge */
+}
+
+.nav_logo_section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome_text {
+  color: #0063b1;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user_badge {
+  background-color: #ffffff;
+  color: #0063b1;
+  font-weight: bold;
+  padding: 8px 18px;
+  border-radius: 50px; /* Faz o formato de pílula */
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Impede o texto de quebrar linha */
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  margin-left: 1.2rem;
+  background-color: transparent;
+}
+
+.item a {
+  color: #0063b1;
+  text-decoration: none;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 8px 18px;
+  display: inline-block;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.item a:hover {
+  background-color: #0063b1;
+  color: #ffffff;
+}
+
+.nav_container img {
+  max-width: 100%;
+  display: block;
+}
