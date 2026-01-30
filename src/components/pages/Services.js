@@ -1,6 +1,6 @@
 function Services() {
   return (
-    <section className={"home_container"}>
+    <section className={"HomeContainer"}>
       <h1>
         Welcome to<span>Services</span>
       </h1>

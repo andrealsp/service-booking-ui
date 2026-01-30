@@ -1,9 +1,9 @@
-.navBar {
+.NavBar {
   background-color: #a9d8c8;
   padding: 0.5em 0;
 }
 
-.nav_container {
+.NavContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,48 +13,48 @@
   margin: 0;
 }
 
-.nav_left_group {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Espaço entre o logo e o badge */
-}
-
-.nav_logo_section {
+.NavLeftGroup {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.welcome_text {
+.NavLogoSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.WelcomeText {
   color: #0063b1;
   font-weight: bold;
   margin: 0;
 }
 
-.user_badge {
+.UserBadge {
   background-color: #ffffff;
   color: #0063b1;
   font-weight: bold;
   padding: 8px 18px;
-  border-radius: 50px; /* Faz o formato de pílula */
+  border-radius: 50px;
   display: flex;
   align-items: center;
-  white-space: nowrap; /* Impede o texto de quebrar linha */
+  white-space: nowrap;
 }
 
-.list {
+.List {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.item {
+.Item {
   margin-left: 1.2rem;
   background-color: transparent;
 }
 
-.item a {
+.Item a {
   color: #0063b1;
   text-decoration: none;
   background-color: #ffffff;
@@ -65,12 +65,29 @@
   font-weight: bold;
 }
 
-.item a:hover {
+.Item a:hover {
   background-color: #0063b1;
   color: #ffffff;
 }
 
-.nav_container img {
+.NavContainer img {
   max-width: 100%;
   display: block;
+}
+
+.LogoutButton {
+  background-color: #fff;
+  color: #d32f2f;
+  border: 2px solid #fecaca;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.LogoutButton:hover {
+  background-color: #dc2626;
+  color: white;
+  border-color: #dc2626;
 }

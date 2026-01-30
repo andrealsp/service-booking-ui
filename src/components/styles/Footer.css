@@ -1,34 +1,83 @@
-.footer {
+.Footer {
   background-color: #84b0dc;
   color: #ffffff;
-  padding: 3em;
-  text-align: center;
-}
-
-.social_list {
+  padding: 2rem 5%;
   display: flex;
-  justify-content: center;
-  list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
-.social_list li {
+.SocialList {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.SocialList li,
+.SocialList a {
   margin: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
 }
 
-.social_list li:hover {
-  color: #ffbb33;
+.SocialList li:hover,
+.SocialList a:hover {
+  color: #0063b1;
+  transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.social_list svg {
-  font-size: 1.5e;
+.SocialList svg {
+  font-size: 1.8rem;
   cursor: pointer;
 }
 
-.copy_right {
+.CopyRight {
   margin-top: 2em;
 }
 
-.copy_right span {
+.CopyRight span {
   font-weight: bold;
+  color: #ffffff;
+}
+
+.FooterContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 4px;
+}
+
+.BrandLine {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.Brand {
+  font-weight: 800;
+  color: #004a85;
+}
+
+.AuthorLine {
+  font-size: 16px;
+  color: #004a85;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.AuthorLine span {
+  font-weight: 600;
   color: #ffffff;
 }

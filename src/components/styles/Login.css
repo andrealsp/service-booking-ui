@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.LoginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #a9d8c8 0%, #0063b1 100%);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.LoginCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 440px;
+  padding: 48px 40px;
+  animation: slideUp 0.5s ease-out;
+}
+
+.LoginHeader {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.LoginLogo {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+}
+
+.LoginHeader h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.LoginHeader span {
+  color: #0063b1;
+}
+
+.LoginHeader p {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.FormGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.FormInput {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.FormInput:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.FormInput.error {
+  border-color: #ef4444;
+}
+
+.FormInput::placeholder {
+  color: #9ca3af;
+}
+
+.ErrorMessage {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: -8px;
+}
+
+.LoginActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -8px;
+}
+
+.LoginActions a {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.LoginActions a:hover {
+  color: #0063b1;
+  text-decoration: underline;
+}

@@ -1,6 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
-// import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 import Container from "./components/layout/Container";
 
@@ -9,45 +15,88 @@ import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import Services from "./components/pages/Services";
 import Appointments from "./components/pages/Appointments";
+import Login from "./components/pages/Login";
+import Signup from "./components/pages/Signup";
+import ProtectedRoute from "./components/services/ProtectedRoute";
 
-function App() {
-  const [name, setName] = useState("Carregando...");
+import "./App.css";
+
+function AppContent() {
+  const [name, setName] = useState("Loading...");
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const publicRoutes = ["/login", "/signup"];
+  const isPublicPage = publicRoutes.includes(location.pathname);
 
   useEffect(() => {
-    fetch("/data/user.json")
-      .then((response) => response.json())
-      .then((data) => setName(data.name))
-      .catch((err) => console.error("Erro ao carregar nome", err));
-  }, []);
+    const validateUserToken = async () => {
+      const token = localStorage.getItem("token");
 
-  //Quando tiver o token coletado:
+      if (!token) {
+        if (!isPublicPage) {
+          navigate("/login");
+        }
+        return;
+      }
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
+      try {
+        const response = await fetch(
+          "http://localhost:8081/bookingManagement/v1/auth/validateToken",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: token.startsWith("Bearer ")
+                ? token
+                : `Bearer ${token}`,
+            },
+          },
+        );
 
-  //   if (token) {
-  //     try {
-  //       const decoded = jwtDecode(token);
+        if (response.ok) {
+          const noBearerToken = token.replace(/^Bearer\s+/i, "");
+          const decoded = jwtDecode(noBearerToken);
+          setName(decoded.name || "Usuário");
+        } else {
+          throw new Error("Token inválido");
+        }
+      } catch (error) {
+        console.error("Erro de autenticação:", error);
+        localStorage.removeItem("token");
+        if (!isPublicPage) navigate("/login");
+      }
+    };
 
-  //       setName(decoded.name);
-  //     } catch (error) {
-  //       console.error("Token inválido ou expirado", error);
-  //       setName("Usuário");
-  //     }
-  //   }
-  // }, []);
+    validateUserToken();
+  }, [location.pathname, navigate, isPublicPage]);
 
   return (
-    <Router>
-      <NavBar name={name} />
-      <Container customClass="min-height">
+    <div className="App">
+      {!isPublicPage && <NavBar name={name} />}
+
+      <Container customClass="MinHeight">
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/services" element={<Services />} />
-          <Route exact path="/appointments" element={<Appointments />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/appointments" element={<Appointments />} />
+          </Route>
         </Routes>
       </Container>
-      <Footer />
+      {!isPublicPage && <Footer />}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

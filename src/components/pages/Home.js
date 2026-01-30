@@ -1,8 +1,8 @@
 import "../styles/Home.css";
 
-function Home({ name }) {
+function Home() {
   return (
-    <section className={"home_container"}>
+    <section className={"HomeContainer"}>
       <h1>
         Welcome to<span>NEXUS</span>
       </h1>
