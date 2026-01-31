@@ -43,7 +43,7 @@ function AppContent() {
 
       try {
         const response = await fetch(
-          "http://localhost:8081/bookingManagement/v1/auth/validateToken",
+          "http://localhost:8081/nexus/v1/auth/validateToken",
           {
             method: "POST",
             headers: {

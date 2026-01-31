@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Importação necessária
+import { Link } from "react-router-dom";
 import Input from "../form/Input";
 import LoginFooter from "../layout/LoginFooter";
 import SuccessModal from "./SuccessModal";
@@ -16,7 +16,6 @@ function Signup() {
     name: "",
   });
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState(false);
 
   async function handleSubmit(e) {
@@ -30,7 +29,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/bookingManagement/v1/auth/register",
+        "http://localhost:8081/nexus/v1/auth/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -88,7 +87,7 @@ function Signup() {
         <form onSubmit={handleSubmit} className="SignupForm">
           <div className="FormGroup">
             <Input
-              className="FormInput" // className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={`FormInput ${errorMessage ? "error" : ""}`}
               type="text"
               text="Name"
               name="name"
@@ -98,7 +97,7 @@ function Signup() {
               required={true}
             />
             <Input
-              className="FormInput" // className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={`FormInput ${errorMessage ? "error" : ""}`}
               type="text"
               text="Username"
               name="username"
@@ -108,7 +107,7 @@ function Signup() {
               required={true}
             />
             <Input
-              className="FormInput" // className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={`FormInput ${errorMessage ? "error" : ""}`}
               type="text"
               text="Email"
               name="email"
@@ -118,7 +117,7 @@ function Signup() {
               required={true}
             />
             <Input
-              className="FormInput" // className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={`FormInput ${errorMessage ? "error" : ""}`}
               type="password"
               text="Password"
               name="password"
@@ -129,7 +128,7 @@ function Signup() {
               required={true}
             />
             <Input
-              className="FormInput" // className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={`FormInput ${errorMessage ? "error" : ""}`}
               type="password"
               text="Confirm Password"
               name="confirmPassword"

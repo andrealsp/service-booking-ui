@@ -18,7 +18,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/bookingManagement/v1/auth/login",
+        "http://localhost:8081/nexus/v1/auth/login",
         {
           method: "POST",
           headers: {

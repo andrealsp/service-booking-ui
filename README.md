@@ -1,66 +1,84 @@
-📌 **Mensagem para recrutador:**
-
-> “Eu sei documentar serviços como em ambiente real.”
-
----
-
-## 2️⃣ `service-booking-ui/README.md`
-
-### 🎯 Papel
-
-Documentação **técnica do frontend**, focada em uso, fluxo e integração com API.
-
-### ❌ O que NÃO entra aqui
-
-- Arquitetura geral do sistema
-- Decisões de backend
-- Roadmap completo
-
----
-
-### 📄 Estrutura sugerida
-
-````md
 # Service Booking UI
 
-Interface web para usuários realizarem e gerenciarem agendamentos.
+Frontend application responsible for user interaction with the authentication system, providing login, registration and session validation flows integrated with the backend API.
 
 ## Tech Stack
 
-- React
-- TypeScript
-- Vite
-- Axios
+- React (component-based UI)
+- React Router DOM (client-side routing)
+- JWT Decode (token parsing and user context)
+- React Icons (UI elements)
+- CSS (layout and styling)
 
 ## Application Flow
 
-1. Login do usuário
-2. Listagem de serviços
-3. Criação de agendamento
-4. Visualização e cancelamento
+- User accesses the application
+- User logs in using valid credentials
+- Backend returns a JWT token
+- Token is stored on the client
+- User name is extracted from the token and displayed in the header
+- Token validity is checked on each page navigation
+- Token expires after 1 hour or is removed on logout
+- User can register if no account exists
 
-## Screens
+## Navigation Notes
 
-- Login
-- Service List
-- Booking Details
-- User Dashboard
+User can navigate through Home, Services and Appointments pages. Some pages are placeholders and not fully implemented.
+
+## Features
+
+- User login via backend authentication API
+- User registration with username and email validation
+- Automatic token validation during navigation
+- Logout functionality
+- Personalized header greeting
+- Footer with professional contact links
 
 ## API Integration
 
-- Comunicação REST com Service Booking API
-- Autenticação via JWT
-- Tratamento de erros e loading states
+- REST communication with backend
+- JWT sent via Authorization header
+- Redirection to login on invalid or expired token
 
-## State Management
+## Error Handling
 
-- React Hooks
-- Estado baseado em resposta da API
+- Invalid credentials
+- Existing username or email
+- Expired or invalid JWT
+- Unauthorized access handling
 
-## Running Locally
+## UI Components
+
+- Login Form
+- Registration Form
+- Header
+- Footer with professional links
+
+## Security Considerations
+
+- JWT-based authentication
+- Token validation on navigation
+- No sensitive data stored in plain text
+
+## Testing (Planned)
+
+- Manual validation of authentication flows
+- Future automated UI tests
+
+## Deployment (Planned)
+
+- Environment-based API configuration
+- Static frontend hosting
+
+## Known Limitations
+
+- Simplified UI
+- No global state management
+- Placeholder pages
+
+## Installation
 
 ```bash
 npm install
 npm run dev
 ```
-````

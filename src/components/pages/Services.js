@@ -1,11 +1,7 @@
+import Construction from "../layout/Construction";
+
 function Services() {
-  return (
-    <section className={"HomeContainer"}>
-      <h1>
-        Welcome to<span>Services</span>
-      </h1>
-    </section>
-  );
+  return <Construction page="Services" />;
 }
 
 export default Services;

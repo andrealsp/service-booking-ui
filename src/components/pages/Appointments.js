@@ -1,11 +1,7 @@
+import Construction from "../layout/Construction";
+
 function Appointments() {
-  return (
-    <section className={"HomeContainer"}>
-      <h1>
-        Welcome to<span>Appointments</span>
-      </h1>
-    </section>
-  );
+  return <Construction page="Appointments" />;
 }
 
 export default Appointments;
