@@ -102,7 +102,6 @@ To run this application locally, you will need:
 
 ```bash
 
-
 npm install
 npm start
 
