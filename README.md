@@ -90,7 +90,18 @@ To run this application locally, you will need:
 
 ## Install
 
+## Prerequisites
+
+To run this application locally, you will need:
+
+- Node.js (version 18 or higher recommended)
+- npm or compatible package manager
+- Backend API running and accessible
+
+## Install
+
 ```bash
+
 
 npm install
 npm start
