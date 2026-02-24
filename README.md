@@ -1,6 +1,6 @@
 # Service Booking UI
 
-Frontend application responsible for user interaction with the authentication system, providing login, registration and session validation flows integrated with the backend API.
+Frontend application for the Service Booking Platform (NEXUS), currently focused on authentication flows and evolving towards full scheduling capabilities.
 
 ## Tech Stack
 
@@ -74,19 +74,32 @@ frontend–backend integration.
 - Environment-based API configuration
 - Static frontend hosting
 
-## Known Limitations
+## Known Limitations (Current Stage)
 
-- Simplified UI
-- No global state management
-- Placeholder pages
+- Booking pages are placeholders
+- No availability visualization yet
+- No booking state management
+- No global data-fetching abstraction (planned improvement)
 
-## Prerequisites
+## Current Status
 
-To run this application locally, you will need:
+The UI currently focuses on authentication flows and secure API integration.
 
-- Node.js (version 18 or higher recommended)
-- npm or compatible package manager
-- Backend API running and accessible
+Next development phase will include:
+
+- Provider listing page
+- Booking creation flow
+- Booking cancellation flow
+- "My Appointments" dashboard
+- Improved user feedback and validation handling
+
+## Upcoming Improvements
+
+- Feature-based folder restructuring
+- API layer abstraction
+- Optional integration with React Query
+- Error boundary implementation
+- Improved loading and error states
 
 ## Prerequisites
 
