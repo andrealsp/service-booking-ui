@@ -32,10 +32,11 @@ function Login() {
       );
 
       const data = await response.json();
-
-      if (response.ok) {
-        if (data.token) localStorage.setItem("token", data.token);
-
+      console.log(data);
+      if (response.ok && data.token) {
+        // Limpa o prefixo caso o backend envie
+        const tokenLimpo = data.token.replace(/^Bearer\s+/i, "");
+        localStorage.setItem("token", tokenLimpo);
         navigate("/");
       } else {
         setErrorMessage({

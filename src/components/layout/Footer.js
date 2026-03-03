@@ -16,7 +16,7 @@ function Footer() {
       <ul className="SocialList">
         <li>
           <a
-            href="https://github.com/andrealsp-portfolio"
+            href="https://github.com/andrealsp"
             target="_blank"
             rel="noreferrer"
           >

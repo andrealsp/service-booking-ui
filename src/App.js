@@ -35,29 +35,24 @@ function AppContent() {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        if (!isPublicPage) {
-          navigate("/login");
-        }
+        if (!isPublicPage) navigate("/login");
         return;
       }
 
       try {
         const response = await fetch(
-          "http://localhost:8081/nexus/v1/auth/validateToken",
+          "http://localhost:8081/nexus/v1/auth/validate",
           {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              Authorization: token.startsWith("Bearer ")
-                ? token
-                : `Bearer ${token}`,
+              Authorization: `Bearer ${token}`,
             },
           },
         );
 
         if (response.ok) {
-          const noBearerToken = token.replace(/^Bearer\s+/i, "");
-          const decoded = jwtDecode(noBearerToken);
+          const decoded = jwtDecode(token);
           setName(decoded.name || "Usuário");
         } else {
           throw new Error("Token inválido");

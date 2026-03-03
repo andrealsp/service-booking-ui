@@ -5,7 +5,7 @@ function Home() {
   return (
     <section className={"HomeContainer"}>
       <h1>
-        Welcome to<span>NEXUS</span>
+        Welcome to<span className={"HomeHighlight"}>NEXUS</span>
       </h1>
       <Construction page="Home" />
     </section>
