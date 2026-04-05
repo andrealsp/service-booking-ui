@@ -1,19 +1,19 @@
 import { FaGithub, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
-import "../styles/Footer.css";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <footer className="Footer">
-      <div className="FooterContent">
-        <p className="BrandLine">
-          <span className="Brand">NEXUS</span> &copy; 2026
+    <footer className={styles.Footer}>
+      <div className={styles.FooterContent}>
+        <p className={styles.BrandLine}>
+          <span className={styles.Brand}>NEXUS</span> &copy; 2026
         </p>
-        <p className="AuthorLine">
+        <p className={styles.AuthorLine}>
           Developed by <span>Andre Luis</span>
         </p>
       </div>
-      <ul className="SocialList">
+      <ul className={styles.SocialList}>
         <li>
           <a
             href="https://github.com/andrealsp"

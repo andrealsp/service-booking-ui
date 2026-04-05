@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.SignupPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Use min-height so it expands if the form is tall, 
+     but takes at least the full screen initially */
+  min-height: 100vh;
+  width: 100%;
+
+  /* Removed position: fixed and top/left to keep it in the page flow */
+  background: linear-gradient(135deg, #a9d8c8 0%, #0063b1 100%);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 40px 20px; /* Increased padding for mobile breathing room */
+  box-sizing: border-box;
+}
+
+.SignupCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 480px; /* Slightly wider for better field alignment */
+  padding: 48px 40px;
+  animation: slideUp 0.5s ease-out;
+
+  /* Ensure the card itself handles vertical overflow if screen is tiny */
+  margin: auto;
+}
+
+/* Animations often help the 'feel' of a full-page transition */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.SignupHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.SignupLogo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px auto; /* Centered the logo image */
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 99, 177, 0.2);
+}
+
+.SignupHeader h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.SignupHeader p {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.SignupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Tightened gap for better vertical fit */
+}
+
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.FormGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Added specific input styling to ensure they look like they 'fill' the card */
+.FormGroup input {
+  padding: 12px 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.FormGroup input:focus {
+  outline: none;
+  border-color: #0063b1;
+  box-shadow: 0 0 0 4px rgba(0, 99, 177, 0.1);
+}
+
+.SignupActions {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+}

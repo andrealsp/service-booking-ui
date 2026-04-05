@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import Container from "./Container";
+import Container from "../Container/Container";
 
-import "../styles/NavBar.css";
-import logo from "../../img/logo.png";
+import styles from "./NavBar.module.css";
+import logo from "@/assets/images/logo.png";
 
 function NavBar({ name }) {
   const navigate = useNavigate();
@@ -15,9 +15,9 @@ function NavBar({ name }) {
   };
 
   return (
-    <nav className="NavBar">
-      <Container customClass="NavContainer">
-        <div className="NavLeftGroup">
+    <nav className={styles.NavBar}>
+      <Container customClass={styles.NavContainer}>
+        <div className={styles.NavLeftGroup}>
           <Link to="/">
             <img
               src={logo}
@@ -25,21 +25,21 @@ function NavBar({ name }) {
               style={{ width: "50px", height: "auto" }}
             />
           </Link>
-          <div className="UserBadge">Hello, {name}</div>
+          <div className={styles.UserBadge}>Hello, {name}</div>
         </div>
 
-        <ul className="List">
-          <li className="Item">
+        <ul className={styles.List}>
+          <li className={styles.Item}>
             <Link to="/">Home</Link>
           </li>
-          <li className="Item">
+          <li className={styles.Item}>
             <Link to="/services">Services</Link>
           </li>
-          <li className="Item">
+          <li className={styles.Item}>
             <Link to="/appointments">Appointments</Link>
           </li>
-          <li className="Item">
-            <button onClick={handleLogout} className="LogoutButton">
+          <li className={styles.Item}>
+            <button onClick={handleLogout} className={styles.LogoutButton}>
               Logout
             </button>
           </li>

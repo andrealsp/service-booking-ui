@@ -8,18 +8,18 @@ import {
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 
-import Container from "./components/layout/Container";
+import Container from "../components/layout/Container/Container.jsx";
 
-import Home from "./components/pages/Home";
-import NavBar from "./components/layout/NavBar";
-import Footer from "./components/layout/Footer";
-import Services from "./components/pages/Services";
-import Appointments from "./components/pages/Appointments";
-import Login from "./components/pages/Login";
-import Signup from "./components/pages/Signup";
-import ProtectedRoute from "./components/services/ProtectedRoute";
+import Home from "../components/pages/Home/Home.jsx";
+import NavBar from "../components/layout/NavBar/NavBar.jsx";
+import Footer from "../components/layout/Footer/Footer.jsx";
+import Services from "../components/pages/Services/Services.jsx";
+import Appointments from "../components/pages/Appointments/Appointments.jsx";
+import Login from "../components/pages/Login/Login.jsx";
+import Signup from "../components/pages/Signup/Signup.jsx";
+import ProtectedRoute from "../components/services/ProtectedRoute/ProtectedRoute.jsx";
 
-import "./App.css";
+import "./App.module.css";
 
 function AppContent() {
   const [name, setName] = useState("Loading...");

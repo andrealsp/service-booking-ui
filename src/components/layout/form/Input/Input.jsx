@@ -1,4 +1,4 @@
-import "../styles/Input.css";
+import styles from "./Input.module.css";
 
 function Input({
   className,
@@ -10,7 +10,7 @@ function Input({
   value,
 }) {
   return (
-    <div className="FormGroup">
+    <div className={styles.FormGroup}>
       <label htmlFor={name}>{text}: </label>
       <input
         className={className}

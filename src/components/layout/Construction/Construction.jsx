@@ -1,12 +1,12 @@
 import React from "react";
-import "../styles/Construction.css";
+import styles from "./Construction.module.css";
 
 function Construction({ page }) {
   return (
-    <section className="ConstructionSection">
-      <div className="ConstructionCard">
-        <div className="ConstructionIcon">🛠️</div>
-        <header className="ConstructionHeader">
+    <section className={styles.ConstructionSection}>
+      <div className={styles.ConstructionCard}>
+        <div className={styles.ConstructionIcon}>🛠️</div>
+        <header className={styles.ConstructionHeader}>
           <h2>
             Page <span>Under Construction</span>
           </h2>

@@ -1,8 +1,8 @@
-import LoginFooter from "../layout/LoginFooter";
-import Input from "../form/Input";
-import SubmitButton from "../form/Button";
+import LoginFooter from "../../layout/LoginFooter/LoginFooter.jsx";
+import Input from "../../layout/form/Input/Input.jsx";
+import SubmitButton from "../../layout/form/Button/Button.jsx";
 
-import "../styles/Login.css";
+import styles from "./Login.module.css";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -59,20 +59,22 @@ function Login() {
   }
 
   return (
-    <section className="LoginPage">
-      <div className="LoginCard">
-        <div className="LoginHeader">
+    <section className={styles.LoginPage}>
+      <div className={styles.LoginCard}>
+        <div className={styles.LoginHeader}>
           <h2>
             <span>NEXUS</span>
           </h2>
           <p>Welcome Back</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="LoginForm">
-          <div className="FormGroup">
+        <form onSubmit={handleSubmit} className={styles.LoginForm}>
+          <div className={styles.FormGroup}>
             <Input
               type="text"
-              className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={
+                styles.FormInput + (errorMessage ? " " + styles.error : "")
+              }
               id="identifier"
               text="Username/Email"
               name="identifier"
@@ -82,10 +84,12 @@ function Login() {
               required={true}
             />
           </div>
-          <div className="FormGroup">
+          <div className={styles.FormGroup}>
             <Input
               type="password"
-              className={`FormInput ${errorMessage ? "error" : ""}`}
+              className={
+                styles.FormInput + (errorMessage ? " " + styles.error : "")
+              }
               id="password"
               text="Password"
               name="password"
@@ -96,10 +100,10 @@ function Login() {
             />
           </div>
           {errorMessage && (
-            <div className="ErrorMessage">{errorMessage.message}</div>
+            <div className={styles.ErrorMessage}>{errorMessage.message}</div>
           )}
           <SubmitButton text="Login" />
-          <div className="LoginActions">
+          <div className={styles.LoginActions}>
             <a href="/signup">Create an account</a>
           </div>
         </form>
