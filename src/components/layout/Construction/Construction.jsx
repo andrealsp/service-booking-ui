@@ -1,18 +1,21 @@
-import React from "react";
 import styles from "./Construction.module.css";
 
-function Construction({ page }) {
+function Construction({ page = "this section" }) {
   return (
-    <section className={styles.ConstructionSection}>
-      <div className={styles.ConstructionCard}>
-        <div className={styles.ConstructionIcon}>🛠️</div>
-        <header className={styles.ConstructionHeader}>
-          <h2>
-            Page <span>Under Construction</span>
+    <section className={styles.section}>
+      <div className={styles.card}>
+        <div className={styles.icon} aria-hidden>
+          🛠️
+        </div>
+
+        <header className={styles.header}>
+          <h2 className={styles.title}>
+            Page <span className={styles.highlight}>Under Construction</span>
           </h2>
-          <p>
-            Our <strong>{page}</strong> section is being prepared to deliver the
-            best possible experience for you.
+
+          <p className={styles.description}>
+            Our <strong>{page}</strong> is being prepared to deliver the best
+            possible experience for you.
           </p>
         </header>
       </div>

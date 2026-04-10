@@ -1,0 +1,41 @@
+/* global.css */
+:root {
+  /* 🎯 PRIMARY (actions, buttons, links) */
+  --color-primary: #1e6fa8;
+  --color-primary-light: #4f9ed1;
+  --color-primary-dark: #154e78;
+
+  /* 🎯 BACKGROUND SYSTEM */
+  --color-bg-main: #f7fafc;
+  --color-bg-gradient-start: #a9d8c8;
+  --color-bg-gradient-end: #0063b1;
+
+  /* 🎯 SURFACE (cards, navbar, inputs) */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+
+  /* 🎯 ACCENT (IMPORTANT — use sparingly) */
+  --color-accent: #f97316; /* orange from logo */
+
+  /* 🎯 TEXT */
+  --color-text-main: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+
+  /* 🎯 STATES */
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+}

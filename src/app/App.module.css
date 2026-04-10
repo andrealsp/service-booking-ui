@@ -1,12 +1,10 @@
-.App {
+.app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 0;
 }
 
-.App > div:nth-child(2),
-.MinHeight {
+.minHeight {
   flex: 1;
   display: flex;
   flex-direction: column;

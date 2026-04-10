@@ -1,93 +1,108 @@
-.NavBar {
-  background-color: #a9d8c8;
+.navbar {
+  background-color: var(--color-surface);
   padding: 0.5em 0;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.NavContainer {
+/* 🔥 KEY FIX HERE */
+.navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 100%;
+  max-width: 1200px; /* keeps layout clean */
+  margin: 0 auto;
+
   padding: 0.5em 15px;
   box-sizing: border-box;
-  margin: 0;
 }
 
-.NavLeftGroup {
+/* LEFT SIDE */
+.leftGroup {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.NavLogoSection {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.WelcomeText {
-  color: #0063b1;
-  font-weight: bold;
-  margin: 0;
-}
-
-.UserBadge {
-  background-color: #ffffff;
-  color: #0063b1;
-  font-weight: bold;
-  padding: 8px 18px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.List {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.Item {
-  margin-left: 1.2rem;
-  background-color: transparent;
-}
-
-.Item a {
-  color: #0063b1;
-  text-decoration: none;
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 8px 18px;
-  display: inline-block;
-  transition: 0.3s;
-  font-weight: bold;
-}
-
-.Item a:hover {
-  background-color: #0063b1;
-  color: #ffffff;
-}
-
-.NavContainer img {
-  max-width: 100%;
+.logo {
+  width: 50px;
+  height: auto;
   display: block;
 }
 
-.LogoutButton {
+.userBadge {
+  background-color: #fff;
+  color: var(--color-text-main);
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.userBadge span {
+  margin-left: 4px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* 🔥 KEY FIX HERE */
+.list {
+  display: flex;
+  align-items: center;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  gap: 1rem;
+
+  margin-left: auto; /* 🚀 pushes menu to the right */
+}
+
+/* LINKS */
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 8px 18px;
+
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.link:hover {
+  background-color: var(--color-accent, #0063b1);
+  color: #fff;
+}
+
+.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* LOGOUT */
+.logout {
   background-color: #fff;
   color: #d32f2f;
   border: 2px solid #fecaca;
+
   padding: 8px 20px;
   border-radius: 25px;
+
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+
+  transition: all 0.25s ease;
 }
 
-.LogoutButton:hover {
+.logout:hover {
   background-color: #dc2626;
-  color: white;
+  color: #fff;
   border-color: #dc2626;
 }

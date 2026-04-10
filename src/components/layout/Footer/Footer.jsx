@@ -2,50 +2,50 @@ import { FaGithub, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 import styles from "./Footer.module.css";
 
+const socialLinks = [
+  {
+    icon: FaGithub,
+    url: "https://github.com/andrealsp",
+    label: "GitHub",
+  },
+  {
+    icon: FaLinkedin,
+    url: "https://www.linkedin.com/in/andre-pereira/",
+    label: "LinkedIn",
+  },
+  {
+    icon: FaEnvelope,
+    url: "mailto:andre.alsp@outlook.com",
+    label: "Email",
+  },
+  {
+    icon: FaWhatsapp,
+    url: "https://wa.me/5511986760568",
+    label: "WhatsApp",
+  },
+];
+
 function Footer() {
   return (
-    <footer className={styles.Footer}>
-      <div className={styles.FooterContent}>
-        <p className={styles.BrandLine}>
-          <span className={styles.Brand}>NEXUS</span> &copy; 2026
+    <footer className={styles.footer}>
+      <div className={styles.content}>
+        <p className={styles.brandLine}>
+          <span className={styles.brand}>NEXUS</span> &copy; 2026
         </p>
-        <p className={styles.AuthorLine}>
+
+        <p className={styles.authorLine}>
           Developed by <span>Andre Luis</span>
         </p>
       </div>
-      <ul className={styles.SocialList}>
-        <li>
-          <a
-            href="https://github.com/andrealsp"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaGithub title="GitHub" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/andre-pereira/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin title="LinkedIn" />
-          </a>
-        </li>
-        <li>
-          <a href="mailto:andre.alsp@outlook.com">
-            <FaEnvelope title="E-mail" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://wa.me/5511986760568"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaWhatsapp title="WhatsApp" />
-          </a>
-        </li>
+
+      <ul className={styles.socialList}>
+        {socialLinks.map(({ icon: Icon, url, label }) => (
+          <li key={label}>
+            <a href={url} target="_blank" rel="noreferrer" aria-label={label}>
+              <Icon />
+            </a>
+          </li>
+        ))}
       </ul>
     </footer>
   );

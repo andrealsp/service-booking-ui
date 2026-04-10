@@ -1,9 +1,15 @@
 import styles from "./LoginFooter.module.css";
 
-function LoginFooter() {
+function LoginFooter({
+  author = "Andre Luis",
+  year = new Date().getFullYear(),
+}) {
   return (
-    <div className={styles.LoginFooter}>
-      <p>Developed by Andre Luis &copy; 2026 </p>
+    <div className={styles.footer}>
+      <p className={styles.text}>
+        Developed by <span className={styles.author}>{author}</span> &copy;{" "}
+        {year}
+      </p>
     </div>
   );
 }

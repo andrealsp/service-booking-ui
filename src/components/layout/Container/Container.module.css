@@ -1,15 +1,15 @@
-.Container {
+.container {
   width: 100%;
-  min-width: 100vh;
-  display: flex;
-  justify-content: space-between;
+  max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
+
+  display: flex;
+  align-items: center;
 }
 
-.MinHeight {
+/* Modifier */
+.minHeight {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
 }

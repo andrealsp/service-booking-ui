@@ -1,6 +1,6 @@
 /* Page */
 
-.page {
+.signupPage {
   min-height: 100vh;
   width: 100%;
 
@@ -8,97 +8,109 @@
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
+  padding: 40px 20px;
   box-sizing: border-box;
 
   background: linear-gradient(
     135deg,
-    var(--color-bg-gradient-start),
-    var(--color-bg-gradient-end)
+    var(--color-primary-light, #a9d8c8),
+    var(--color-accent, #0063b1)
   );
 }
 
 /* Card */
 
-.card {
+.signupCard {
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
 
   padding: 48px 40px;
+  margin: auto;
 
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 24px;
 
   backdrop-filter: blur(10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 
   animation: slideUp 0.4s ease-out;
 }
 
 /* Header */
 
-.header {
+.signupHeader {
   text-align: center;
   margin-bottom: 32px;
 }
 
-.header h2 {
+.signupHeader h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #1a1a2e;
   margin: 0 0 8px;
 }
 
-.header span {
+.signupHeader span {
   color: var(--color-accent);
 }
 
-.header p {
+.signupHeader p {
   font-size: 15px;
-  color: #6b7280;
+  color: var(--color-text-muted, #6b7280);
   margin: 0;
 }
 
 /* Form */
 
-.form {
+.signupForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+}
+
+/* Sections */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted, #6b7280);
+  margin-bottom: 4px;
 }
 
 /* Error */
 
-.error {
+.errorMessage {
   background: #fef2f2;
-  color: var(--color-error);
   border: 1px solid #fecaca;
+  color: #dc2626;
 
   padding: 12px 16px;
   border-radius: 10px;
-
   font-size: 14px;
 }
 
 /* Actions */
 
-.actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 4px;
+.signupActions {
+  text-align: center;
+  margin-top: 16px;
+  padding-top: 16px;
+
+  border-top: 1px solid var(--color-border, #f3f4f6);
 }
 
-.actions a {
-  font-size: 13px;
-  font-weight: 500;
-  color: #6b7280;
+.signupActions a {
+  color: var(--color-accent, #0063b1);
   text-decoration: none;
-
-  transition: color 0.2s ease;
+  font-weight: 500;
 }
 
-.actions a:hover {
-  color: #0063b1;
+.signupActions a:hover {
   text-decoration: underline;
 }
 

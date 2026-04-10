@@ -3,69 +3,38 @@ import {
   Routes,
   Route,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 
-import Container from "../components/layout/Container/Container.jsx";
+import { getUserFromToken } from "@/services/tokenService";
 
-import Home from "../components/pages/Home/Home.jsx";
-import NavBar from "../components/layout/NavBar/NavBar.jsx";
-import Footer from "../components/layout/Footer/Footer.jsx";
-import Services from "../components/pages/Services/Services.jsx";
-import Appointments from "../components/pages/Appointments/Appointments.jsx";
-import Login from "../components/pages/Login/Login.jsx";
-import Signup from "../components/pages/Signup/Signup.jsx";
-import ProtectedRoute from "../components/services/ProtectedRoute/ProtectedRoute.jsx";
+import Container from "../components/layout/Container/Container";
+import Home from "../components/pages/Home/Home";
+import NavBar from "../components/layout/NavBar/NavBar";
+import Footer from "../components/layout/Footer/Footer";
+import Services from "../components/pages/Services/Services";
+import Appointments from "../components/pages/Appointments/Appointments";
+import Login from "../components/pages/Login/Login";
+import Signup from "../components/pages/Signup/Signup";
+import ProtectedRoute from "../components/routing/ProtectedRoute/ProtectedRoute";
 
 import "./App.module.css";
 
-function AppContent() {
-  const [name, setName] = useState("Loading...");
+function AppLayout() {
+  const token = localStorage.getItem("token");
+  let name = "User";
+
+  if (token) {
+    const decoded = jwtDecode(token);
+    name = decoded.given_name || "User";
+  }
 
   const location = useLocation();
-  const navigate = useNavigate();
 
   const publicRoutes = ["/login", "/signup"];
   const isPublicPage = publicRoutes.includes(location.pathname);
 
-  useEffect(() => {
-    const validateUserToken = async () => {
-      const token = localStorage.getItem("token");
-
-      if (!token) {
-        if (!isPublicPage) navigate("/login");
-        return;
-      }
-
-      try {
-        const response = await fetch(
-          "http://localhost:8081/nexus/v1/auth/validate",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        );
-
-        if (response.ok) {
-          const decoded = jwtDecode(token);
-          setName(decoded.name || "Usuário");
-        } else {
-          throw new Error("Token inválido");
-        }
-      } catch (error) {
-        console.error("Erro de autenticação:", error);
-        localStorage.removeItem("token");
-        if (!isPublicPage) navigate("/login");
-      }
-    };
-
-    validateUserToken();
-  }, [location.pathname, navigate, isPublicPage]);
+  console.log("Token", token);
 
   return (
     <div className="App">
@@ -75,7 +44,6 @@ function AppContent() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
@@ -83,17 +51,16 @@ function AppContent() {
           </Route>
         </Routes>
       </Container>
+
       {!isPublicPage && <Footer />}
     </div>
   );
 }
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <AppContent />
+      <AppLayout />
     </Router>
   );
 }
-
-export default App;

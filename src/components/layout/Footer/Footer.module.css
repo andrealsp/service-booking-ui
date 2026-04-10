@@ -1,83 +1,75 @@
-.Footer {
-  background-color: #84b0dc;
-  color: #ffffff;
-  padding: 2rem 5%;
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+
+  padding: 1.5rem 5%;
+
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
 }
 
-.SocialList {
+/* Content */
+
+.content {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brandLine {
+  font-size: 14px;
+  margin: 0;
+}
+
+.brand {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.authorLine {
+  font-size: 13px;
+  margin: 0;
+  color: #9ca3af;
+}
+
+.authorLine span {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Social */
+
+.socialList {
+  display: flex;
+  gap: 0.75rem;
+
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.SocialList li,
-.SocialList a {
-  margin: 0 1em;
+.socialList a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: background 0.3s ease;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+
+  color: #6b7280;
+  transition: all 0.2s ease;
 }
 
-.SocialList li:hover,
-.SocialList a:hover {
-  color: #0063b1;
-  transform: translateY(-3px);
-  background-color: rgba(255, 255, 255, 0.2);
+.socialList a:hover {
+  background-color: #f3f4f6;
+  color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
-.SocialList svg {
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-.CopyRight {
-  margin-top: 2em;
-}
-
-.CopyRight span {
-  font-weight: bold;
-  color: #ffffff;
-}
-
-.FooterContent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 4px;
-}
-
-.BrandLine {
-  font-size: 18px;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 0.5px;
-}
-
-.Brand {
-  font-weight: 800;
-  color: #004a85;
-}
-
-.AuthorLine {
-  font-size: 16px;
-  color: #004a85;
-  margin: 0;
-  opacity: 0.9;
-}
-
-.AuthorLine span {
-  font-weight: 600;
-  color: #ffffff;
+.socialList svg {
+  font-size: 1.2rem;
 }

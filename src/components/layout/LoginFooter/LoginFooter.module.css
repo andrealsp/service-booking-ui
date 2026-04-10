@@ -1,17 +1,18 @@
-.LoginFooter {
+.footer {
   text-align: center;
   margin-top: 2em;
   padding-top: 24px;
-  border-top: 1px solid #e5e7eb;
+
+  border-top: 1px solid var(--color-border, #e5e7eb);
 }
 
-.LoginFooter span {
-  font-weight: bold;
-  color: #0063b1;
-}
-
-.LoginFooter p {
+.text {
   font-size: 13px;
-  color: #9ca3af;
+  color: var(--color-text-muted, #9ca3af);
   margin: 0;
+}
+
+.author {
+  font-weight: 600;
+  color: var(--color-accent, #0063b1);
 }

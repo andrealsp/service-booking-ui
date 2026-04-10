@@ -3,14 +3,16 @@ import styles from "./SuccessModal.module.css";
 
 function SuccessModal() {
   return (
-    <section className={styles.SuccessPage}>
-      <div className={styles.SuccessCard}>
+    <section className={styles.page}>
+      <div className={styles.card}>
         <h2>Account Created!</h2>
+
         <p>
-          Your registration was successful. You can now access all the features
-          of <span>NEXUS</span>.
+          Your registration was successful. You can now access all features of{" "}
+          <span>NEXUS</span>.
         </p>
-        <Link to="/login" className={styles.SuccessButton}>
+
+        <Link to="/login" className={styles.button}>
           Go to Login
         </Link>
       </div>

@@ -1,34 +1,35 @@
-.HomeContainer {
+.container {
   width: 100%;
+  min-height: 70vh;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  gap: 24px;
+
   padding: 40px 20px;
-  min-height: 70vh;
-  box-sizing: border-box;
 }
 
-.HomeContainer h1 {
-  padding: 0.5em 15px;
-  position: absolute;
-  top: 1.75em;
-  left: 0.2em;
-  font-size: 2.5em;
-  margin-top: 0;
+/* Header */
+
+.header {
 }
 
-.HomeHighlight {
-  color: #84b0dc;
-  padding: 0 0.2em;
+.title {
+  font-size: 2.2rem;
+  margin: 0;
 }
 
-.HomeContainer p {
-  margin-bottom: 1.5em;
-  color: #7b7b7b;
+.highlight {
+  color: var(--color-accent, #84b0dc);
+  margin-left: 4px;
 }
 
-.HomeContainer img {
-  width: 350px;
-  margin: 2em 0;
+/* Content */
+
+.content {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

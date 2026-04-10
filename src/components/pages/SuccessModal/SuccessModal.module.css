@@ -1,71 +1,86 @@
-.SuccessPage {
+/* Page wrapper */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background: linear-gradient(135deg, #a9d8c8 0%, #0063b1 100%);
-  font-family: "Inter", sans-serif;
-  margin: 0;
+
   padding: 20px;
-  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light, #a9d8c8),
+    var(--color-accent, #0063b1)
+  );
 }
 
-.SuccessCard {
-  background: rgba(255, 255, 255, 0.95);
+/* Card */
+
+.card {
+  width: 100%;
+  max-width: 400px;
+
   padding: 48px 40px;
   border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+  background: white;
+  color: var(--color-text-main);
   text-align: center;
-  max-width: 400px;
-  width: 90%;
-  animation: slideUp 0.4s ease-out;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  animation: slideUp 0.3s ease-out;
 }
 
-.SuccessCard h2 {
-  color: #1a1a2e;
+/* Content */
+
+.card h2 {
   margin-bottom: 12px;
   font-size: 24px;
 }
 
-.SuccessCard p {
-  color: #6b7280;
-  line-height: 1.6;
+.card p {
   margin-bottom: 32px;
+  line-height: 1.6;
+
+  color: var(--color-text-muted, #6b7280);
 }
 
-.SuccessCard p span {
-  color: #0063b1;
+.card span {
+  color: var(--color-accent);
   font-weight: 700;
 }
 
-.SuccessButton {
-  display: block;
-  background: #0063b1;
-  color: white;
-  text-decoration: none;
+/* Button */
+
+.button {
+  display: inline-block;
+
   padding: 14px 24px;
   border-radius: 12px;
+
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  text-decoration: none;
   font-weight: 600;
-  transition:
-    transform 0.2s,
-    background 0.2s;
+
+  transition: all 0.2s ease;
 }
 
-.SuccessButton:hover {
+.button:hover {
   background: #004d8a;
   transform: translateY(-2px);
 }
 
+/* Animation */
+
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
