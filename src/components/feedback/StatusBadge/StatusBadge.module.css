@@ -1,0 +1,42 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  padding: 4px 12px;
+  border-radius: 999px;
+
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  border: 1px solid transparent;
+}
+
+.pending_approval {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.completed {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.no_show {
+  background: #fef3c7;
+  color: #92400e;
+}

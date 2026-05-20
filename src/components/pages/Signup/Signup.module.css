@@ -1,125 +1,261 @@
-/* Page */
-
-.signupPage {
+.page {
   min-height: 100vh;
   width: 100%;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
-  padding: 40px 20px;
-  box-sizing: border-box;
+  padding: 48px 20px;
 
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-light, #a9d8c8),
-    var(--color-accent, #0063b1)
-  );
+  background:
+    radial-gradient(ellipse at top, rgba(30, 111, 168, 0.07), transparent 60%),
+    var(--color-bg-main);
 }
 
-/* Card */
-
-.signupCard {
+.card {
   width: 100%;
-  max-width: 480px;
+  max-width: 720px;
 
-  padding: 48px 40px;
-  margin: auto;
-
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 24px;
+  padding: 48px 48px 36px;
 
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-
-  animation: slideUp 0.4s ease-out;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  animation: rise 0.35s ease-out;
 }
 
-/* Header */
-
-.signupHeader {
-  text-align: center;
-  margin-bottom: 32px;
+@media (max-width: 600px) {
+  .card {
+    padding: 32px 24px 28px;
+    border-radius: 18px;
+  }
 }
 
-.signupHeader h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0 0 8px;
+/* ─── Header ─── */
+
+.header {
+  margin-bottom: 28px;
 }
 
-.signupHeader span {
-  color: var(--color-accent);
+.brand {
+  margin-bottom: 18px;
 }
 
-.signupHeader p {
-  font-size: 15px;
-  color: var(--color-text-muted, #6b7280);
+.title {
   margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text-main);
 }
 
-/* Form */
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
 
-.signupForm {
+.subtitle a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.subtitle a:hover {
+  text-decoration: underline;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 24px;
+
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.notice svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+/* ─── Form layout ─── */
+
+.form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
-
-/* Sections */
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.section h3 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-text-muted, #6b7280);
-  margin-bottom: 4px;
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--color-border);
 }
 
-/* Error */
-
-.errorMessage {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #dc2626;
-
-  padding: 12px 16px;
+.sectionHead svg {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
   border-radius: 10px;
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+}
+
+.sectionHead h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.sectionHead p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Role picker ─── */
+
+.roleFieldset {
+  border: 0;
+  padding: 0;
+  margin: 6px 0 0;
+}
+
+.roleLegend {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.roleCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+
+  transition: all var(--transition-fast);
+}
+
+.roleCard:hover {
+  border-color: var(--color-primary-light);
+  background: #f8fafc;
+}
+
+.roleCardActive {
+  border-color: var(--color-primary);
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(30, 111, 168, 0.12);
+}
+
+.roleIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
   font-size: 14px;
 }
 
-/* Actions */
-
-.signupActions {
-  text-align: center;
-  margin-top: 16px;
-  padding-top: 16px;
-
-  border-top: 1px solid var(--color-border, #f3f4f6);
+.roleCardActive .roleIcon {
+  background: var(--color-primary);
+  color: #fff;
 }
 
-.signupActions a {
-  color: var(--color-accent, #0063b1);
-  text-decoration: none;
+.roleLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.roleDescription {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.roleCheck {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--color-primary);
+  font-size: 14px;
+}
+
+.fieldError {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-error);
+  font-size: 12px;
   font-weight: 500;
 }
 
-.signupActions a:hover {
-  text-decoration: underline;
+/* ─── Submit / errors ─── */
+
+.submitError {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
 }
 
-/* Animation */
-
-@keyframes slideUp {
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;

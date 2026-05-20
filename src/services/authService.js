@@ -1,21 +1,21 @@
-import { apiFetch } from "./api";
+import { apiClient, ApiError } from "./api";
 
 export async function login(identifier, password) {
-  const data = await apiFetch("/nexus/v1/auth/login", {
-    method: "POST",
-    body: JSON.stringify({ identifier, password }),
-  });
+  const data = await apiClient.post("/auth/login", { identifier, password });
 
-  if (!data.token) {
-    throw new Error(data.message || "Invalid credentials");
+  if (!data?.token) {
+    throw new ApiError("Invalid credentials", { status: 401 });
   }
 
   const cleanToken = data.token.replace(/^Bearer\s+/i, "");
   localStorage.setItem("token", cleanToken);
-
   return data;
 }
 
+/**
+ * Public registration — backend always forces role=CLIENT, regardless of what
+ * we send. We still pass "Client" for clarity but it's purely cosmetic.
+ */
 export async function registerUser(formData) {
   const payload = {
     fullName: formData.fullName,
@@ -31,16 +31,7 @@ export async function registerUser(formData) {
     role: "Client",
   };
 
-  const data = await apiFetch("/nexus/v1/auth/register", {
-    method: "POST",
-    body: JSON.stringify(payload),
-  });
-
-  if (data.error || data.message) {
-    throw new Error(data.message || "Registration failed");
-  }
-
-  return data;
+  return apiClient.post("/auth/register", payload);
 }
 
 export function getToken() {
@@ -54,18 +45,12 @@ export function clearToken() {
 export async function validateToken() {
   const token = getToken();
   if (!token) return false;
-
   try {
-    // Assuming the API has a validate endpoint
-    const data = await apiFetch("/nexus/v1/auth/validate", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const result = await apiClient.get("/auth/validate", {
+      headers: { Authorization: `Bearer ${token}` },
     });
-    return data.valid || true; // Adjust based on API response
-  } catch (error) {
-    console.error("Token validation failed:", error);
+    return Boolean(result);
+  } catch {
     return false;
   }
 }

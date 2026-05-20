@@ -1,0 +1,253 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.row:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30, 111, 168, 0.1);
+}
+
+.rowError {
+  border-color: #fca5a5;
+}
+
+.rowError:focus-within {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.countryTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  background: var(--color-surface-muted);
+  border: 0;
+  border-right: 1px solid var(--color-border);
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--color-text-main);
+  white-space: nowrap;
+}
+
+.countryTrigger:hover:not(:disabled) {
+  background: #e0f2fe;
+}
+
+.countryTrigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.flag {
+  font-size: 18px;
+}
+
+.dial {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.chev {
+  color: var(--color-text-muted);
+  font-size: 10px;
+}
+
+.numberInput {
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 14px 16px;
+  font: inherit;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  background: transparent;
+  color: var(--color-text-main);
+  min-width: 0;
+}
+
+.numberInput::placeholder {
+  color: #9ca3af;
+}
+
+.numberInput:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-muted);
+}
+
+.lineBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+  margin-right: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.lineMobile {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.lineLandline {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.lineLabel {
+  font-size: 10px;
+}
+
+.errorText {
+  color: var(--color-error);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── Country picker dropdown ─────────────────────────────────────────── */
+
+.picker {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  max-height: 320px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.12s ease-out;
+}
+
+.searchWrap {
+  position: relative;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 22px;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px 8px 32px;
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30, 111, 168, 0.1);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text-main);
+  transition: background 0.12s ease;
+}
+
+.item:hover {
+  background: var(--color-surface-muted);
+}
+
+.itemActive {
+  background: #eff6ff;
+  font-weight: 600;
+}
+
+.itemFlag {
+  font-size: 16px;
+}
+
+.itemName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemDial {
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+}
+
+.empty {
+  padding: 14px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .lineBadge {
+    display: none;
+  }
+}
